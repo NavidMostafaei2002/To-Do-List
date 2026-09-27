@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Yekan";
+  src: url("./assets/fonts/IRANYekanX-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --color-primary-red: #FF5F37;
+  --color-secondary-red: #FFE2DB;
+  --color-primary-yellow: #FFAF37;
+  --color-secondary-yellow: #FFEFD6;
+  --color-primary-green: #11A483;
+  --color-secondary-green: #C3FFF1;
+  --color-primary-blue: #007BFF;
+}
+
+* {
+  font-family: "Yekan" , sans-serif;
+}
