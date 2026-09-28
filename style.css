@@ -6,15 +6,40 @@
 }
 
 :root {
-  --color-primary-red: #FF5F37;
-  --color-secondary-red: #FFE2DB;
-  --color-primary-yellow: #FFAF37;
-  --color-secondary-yellow: #FFEFD6;
-  --color-primary-green: #11A483;
-  --color-secondary-green: #C3FFF1;
-  --color-primary-blue: #007BFF;
-  --bg-primary:#FEFEFE;
-  --card:#f9f9f9;
+  /** Status Colors */
+  --color-primary-red: #ff5f37;
+  --color-secondary-red: #ffe2db;
+  --color-primary-yellow: #ffaf37;
+  --color-secondary-yellow: #ffefd6;
+  --color-primary-green: #11a483;
+  --color-secondary-green: #c3fff1;
+  --color-primary-blue: #007bff;
+  /** ----- Light Mode Colors ----- */
+  /** Background Colors */
+  --card: #ffffff;
+  --bg-primary: #fefefe;
+  --bg-hover-primary: #f5faff;
+  --btn-bg-muted: #f5f5f5;
+  --btn-bg-diabled: #f7f7f7;
+  /** Text Colors */
+  --color-primary: #242424;
+  --color-primary-muted: #7d7d7f;
+  --color-secondary-muted: #696969;
+  --color-tertiary-muted: #afaeb2;
+  /** Result Colors */
+  --success: #90f677;
+  --error: #e63946;
+}
+
+/** Dark Mode Colors */
+.dark {
+  /** Background Colors */
+  --card: #091120;
+  --bg-primary: #060c18;
+  --btn-bg-muted: #0c1b31;
+  --btn-bg-diabled: #002247;
+  /** Text Colors */
+  --color-primary: #ffffff;
 }
 
 * {
