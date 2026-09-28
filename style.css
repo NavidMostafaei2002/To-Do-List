@@ -13,6 +13,8 @@
   --color-primary-green: #11A483;
   --color-secondary-green: #C3FFF1;
   --color-primary-blue: #007BFF;
+  --bg-primary:#FEFEFE;
+  --card:#f9f9f9;
 }
 
 * {
