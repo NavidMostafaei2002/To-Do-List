@@ -1,69 +1,130 @@
 <!doctype html>
 <html lang="fa-IR" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo List</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo List</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    </head>
 
-  <body>
+    <body>
 
-    <!-- sidebar -->
-    <aside>
+        <!-- sidebar -->
+        <aside>
 
-    </aside>
+        </aside>
 
+        <main>
 
-    <main>
+            <!-- mobile header -->
+            <header>
 
-        <!-- mobile header -->
-        <header>
+            </header>
 
-        </header>
+            <!-- mobile profile img and date -->
+            <div>
 
-        <!-- mobile profile img and date -->
-        <div>
+            </div>
 
-        </div>
+            <div>
+                <h2>تسک های امروز</h2>
+                <p>3 تسک را باید انجام دهید.</p>
+            </div>
 
-        <div>
-            <h2>تسک های امروز</h2>
-            <p>3 تسک را باید انجام دهید.</p>
-        </div>
+            <!-- add todo button -->
+            <div>
+                افزودن وظیفه جدید
+            </div>
 
-        <!-- add todo button -->
-        <div>
-            افزودن وظیفه جدید
-        </div>
+            <!-- add todo section -->
+            <section>
+                <input type="text">
+                <input type="text">
+            </section>
 
-        <!-- add todo section -->
-        <section>
-            <input type="text">
-            <input type="text">
-        </section>
+            <!-- uncomplete todos container -->
+            <section>
 
-        <!-- uncomplete todos container -->
-        <section>
+            </section>
 
-        </section>
+            <div>
+                <h2>تسک های انجام شده</h2>
+                <p>3 تسک انجام شده است.</p>
+            </div>
 
+            <!-- complete todos container -->
+            <section class="p-4">
+                <h2 class="font-bold text-[var(--color-primary)]">تسک های انجام
+                    شده</h2>
+                <p class="text-[var(--color-primary-muted)] text-xs"><span
+                        class="font-bold">۳</span> تسک را باید انجام دهید.</p>
+                <!--tasks-->
+                <div class="text-[var(--color-primary)]">
+                    <!--task-->
+                    <div
+                        class="relative flex flex-row justify-between items-center border-1 border-[var(--color-tertiary-muted)] rounded-xl py-5 px-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1
+         after:rounded-l-full after:bg-[var(--color-primary-yellow)] mt-3 bg-[var(--card)]">
+                        <input class="w-4 h-4 rounded border border-gray-300"
+                            type="checkbox" id="task1" checked>
+                        <label for="task1">
+                            <p class="line-through  decoration-1">خرید میوه و
+                                سبزیجات و لبنیات برای خانه</p>
+                        </label>
+                        <button class="mr-0 cursor-pointer" type="button"><svg
+                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-row justify-between items-center border-1 border-[var(--color-tertiary-muted)] rounded-xl py-4 px-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1
+         after:rounded-l-full after:bg-[var(--color-primary-red)] mt-3 bg-[var(--card)]">
+                        <input class="w-4 h-4 rounded border border-gray-300"
+                            type="checkbox" id="task2" checked>
+                        <label for="task2">
+                            <p class="line-through  decoration-1">تماس با مبل
+                                فروشی در مورد تاخیر در ارسال</p>
+                        </label>
+                        <button class="mr-0 cursor-pointer" type="button"><svg
+                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-row justify-between items-center border-1 border-[var(--color-tertiary-muted)] rounded-xl py-5 px-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1
+         after:rounded-l-full after:bg-[var(--color-primary-green)] mt-3 bg-[var(--card)]">
+                        <input class="w-4 h-4 rounded border border-gray-300"
+                            type="checkbox" id="task3" checked>
+                        <label for="task3">
+                            <p class="line-through  decoration-1">جلسه با مرتضی
+                                در مورد مصاحبه با کارآموز ادمین پنل</p>
+                        </label>
+                        <button class="mr-0 cursor-pointer" type="button"><svg
+                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
 
-        <div>
-            <h2>تسک های انجام شده</h2>
-            <p>3 تسک انجام شده است.</p>
-        </div>
+        </main>
 
-
-        <!-- complete todos container -->
-        <section>
-
-        </section>
-        
-    </main>
-
-  </body>
-
-  <script src="./js/main.js"></script>
+    </body>
+    <script src="./js/main.js"></script>
 </html>
