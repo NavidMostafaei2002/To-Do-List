@@ -283,41 +283,131 @@
       </div>
     </aside>
 
-    <main>
+    <main class="min-w-0 flex-1 pb-10 md:px-10 md:pt-16">
       <!-- mobile header -->
-      <header></header>
+      <header class="sticky top-0 z-20 m-3 flex items-center rounded-xl bg-[var(--card)] dark:bg-[var(--card-dark)] px-4 py-3 shadow-sm md:hidden">
+          <button aria-label="منو" class="text-xl text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">☰</button>
+          <h1 class="flex-1 text-center text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">کوئرا لیست</h1>
+          <span class="w-4"></span>
+      </header>
 
+    <div class="mx-auto max-w-3xl px-4 md:px-0">
       <!-- mobile profile img and date -->
-      <div></div>
+      <div class="flex items-center border-b border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] py-5 md:hidden">
+        <img class="w-14 h-14 rounded-full object-cover" src="./assets/images/user-avatar.png" alt="User Avatar">
+        <div class="flex flex-col justify-center gap-1 mr-4">
+         <span class="font-extrabold text-base text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">سلام، رویا</span>
+         <span class="font-semibold text-xs text-[var(--color-primary-muted)]">امروز، سه‌شنبه، ۵ بهمن ۱۴۰۲</span>
+        </div>
+      </div>
 
-      <div>
-        <h2>تسک های امروز</h2>
-        <p>3 تسک را باید انجام دهید.</p>
+      <div class="mt-5 md:mt-0">
+       <h2 class="font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">تسک‌های امروز</h2>
+       <p class="mt-1 text-xs text-[var(--color-primary-muted)]">۳ تسک را باید انجام دهید.</p>
       </div>
 
       <!-- add todo button -->
 
-      <div>افزودن وظیفه جدید</div>
+      <button class="mt-4 flex w-full items-center justify-center gap-1 rounded-xl border border-dashed border-[var(--color-primary-blue)] bg-[var(--bg-hover-primary)] py-3 text-sm font-bold text-[var(--color-primary-blue)] dark:bg-[var(--btn-bg-muted-dark)]">
+       <span class="text-lg leading-none">+</span> افزودن وظیفه جدید
+      </button>
 
       <!-- add todo section -->
 
       <section>
-        <input type="text" />
-        <input type="text" />
+       <div id="add-form" class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] hidden mt-3 shadow-sm">
+         <div class="space-y-2 p-4">
+            <input value="" placeholder="نام تسک" class="w-full bg-transparent text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)] outline-none">
+            <input value="" placeholder="توضیحات" class="w-full bg-transparent text-xs text-[var(--color-primary-muted)] outline-none">
+              <div class="flex flex-wrap items-center gap-2 pt-2">
+                <button class="rounded-md border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] px-2 py-1 text-xs text-[var(--color-primary-muted)]">تگ‌ها</button>
+                <div class="hidden gap-2 rounded-lg border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] p-1.5"><button class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]">بالا</button><button class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-yellow)] text-[var(--color-primary-yellow)]">متوسط</button><button class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]">پایین</button></div>
+              </div>
+         </div>
+         <div class="flex items-center gap-2 border-t border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] p-3">
+            <button class="rounded-lg bg-[var(--color-primary-blue)] px-4 py-1.5 text-[13px] text-white">اضافه کردن تسک</button>
+            <button class="grid size-8 place-items-center rounded-lg bg-[var(--btn-bg-muted)] dark:bg-[var(--btn-bg-muted-dark)] text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]" aria-label="لغو">×</button>
+          </div>
+       </div>
       </section>
 
       <!-- uncomplete todos container -->
 
-      <section></section>
+     <section class="mt-3 flex flex-col gap-3">
+       <div class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] relative border-s-4 border-s-[var(--color-primary-red)] p-4">
+          <div class="flex items-center gap-3">
+           <input type="checkbox" class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]">
+           <span class="text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">جلسه با مدیران پروژه</span>
+           <span class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]">بالا</span>
+           <button class="ms-auto px-1 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]" aria-label="گزینه‌ها">⋮</button>
+         </div>
+              <p class="mt-2 ps-8 text-xs text-[var(--color-primary-muted)]">جلسه با محسن یگانه و مریم جلالی</p>
+        </div>
+        <div class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] relative border-s-4 border-s-[var(--color-primary-yellow)] p-4">
+         <div class="flex items-center gap-3">
+            <input type="checkbox" class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]">
+            <span class="text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">خرید میوه و سبزیجات و لبنیات برای خانه</span>
+            <span class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-yellow)] text-[var(--color-primary-yellow)]">متوسط</span>
+           <button class="ms-auto px-1 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]" aria-label="گزینه‌ها">⋮</button>
+          </div>
+              <p class="mt-2 ps-8 text-xs text-[var(--color-primary-muted)]">سوپرمارکت یاران دریایی</p>
+          </div>
+           <div class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] relative border-s-4 border-s-[var(--color-primary-green)] p-4">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]">
+                <span class="text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">تماس با جمشید</span>
+                <span class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]">پایین</span>
+                <button class="ms-auto px-1 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]" aria-label="گزینه‌ها">⋮</button>
+              </div>
+               <p class="mt-2 ps-8 text-xs text-[var(--color-primary-muted)]">باید در مورد کارهای باقیمانده از پروژه قبلی صحبت کنیم.</p>
+               <div class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] absolute end-2 top-10 z-10 hidden gap-1 p-1 shadow-md">
+                 <button class="rounded p-1.5 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]" aria-label="ویرایش">✎</button>
+                 <button class="rounded p-1.5 text-[var(--error)]" aria-label="حذف">🗑</button>
+               </div>
+              </div>
+              <div id="edit-form" class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] hidden mt-3 shadow-sm">
+               <div class="space-y-2 p-4">
+                 <input value="تماس با جمشید" placeholder="نام تسک" class="w-full bg-transparent text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)] outline-none">
+                 <input value="باید در مورد کارهای باقیمانده از پروژه قبلی صحبت کنیم." placeholder="توضیحات" class="w-full bg-transparent text-xs text-[var(--color-primary-muted)] outline-none">
+                 <div class="flex flex-wrap items-center gap-2 pt-2">
+                   <span class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]">× پایین</span>
+                   <div class="hidden gap-2 rounded-lg border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] p-1.5"><button class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]">بالا</button><button class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-yellow)] text-[var(--color-primary-yellow)]">متوسط</button><button class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]">پایین</button></div>
+                 </div>
+               </div>
+               <div class="flex items-center gap-2 border-t border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] p-3">
+                 <button class="rounded-lg bg-[var(--color-primary-blue)] px-4 py-1.5 text-[13px] text-white">ویرایش تسک</button>
+                 <button class="grid size-8 place-items-center rounded-lg bg-[var(--btn-bg-muted)] dark:bg-[var(--btn-bg-muted-dark)] text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]" aria-label="لغو">×</button>
+               </div>
+             </div>
 
-      <div>
-        <h2>تسک های انجام شده</h2>
-        <p>3 تسک انجام شده است.</p>
+           <!-- empty state -->
+       </section>
+
+        <div class="mt-8">
+         <h2 class="font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">تسک‌های انجام شده</h2>
+         <p class="mt-1 text-xs text-[var(--color-primary-muted)]">۳ تسک انجام شده است.</p>
+       </div>
+
+       <!-- complete todos container -->
+
+       <section class="mt-3 flex flex-col gap-3">
+         <div class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] flex items-center gap-3 border-s-4 border-s-[var(--color-primary-yellow)] p-4">
+          <input type="checkbox" class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]" checked="">
+          <span class="flex-1 text-sm line-through text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">خرید میوه و سبزیجات و لبنیات برای خانه</span>
+          <span class="opacity-30 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">⋮</span>
+         </div>
+         <div class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] flex items-center gap-3 border-s-4 border-s-[var(--color-primary-red)] p-4">
+           <input type="checkbox" class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]" checked="">
+           <span class="flex-1 text-sm line-through text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">تماس با مبل فروشی در مورد تاخیر در ارسال</span>
+           <span class="opacity-30 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">⋮</span>
+         </div>
+         <div class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] flex items-center gap-3 border-s-4 border-s-[var(--color-primary-yellow)] p-4">
+          <input type="checkbox" class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]" checked="">
+          <span class="flex-1 text-sm line-through text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">جلسه با مرتضی در مورد مصاحبه با کارآموز ادمین پنل</span>
+          <span class="opacity-30 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">⋮</span>
+         </div>
+       </section>
       </div>
-
-      <!-- complete todos container -->
-
-      <section></section>
     </main>
   </body>
 
