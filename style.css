@@ -40,8 +40,12 @@
   --btn-bg-diabled: #002247;
   /** Text Colors */
   --color-primary: #ffffff;
+  /**Status Color */
+  --color-secondary-green: #233332;
+  --color-secondary-yellow: #302f2d;
+  --color-secondary-red: #3d2327;
 }
 
 * {
-  font-family: "Yekan" , sans-serif;
+  font-family: "Yekan", sans-serif;
 }

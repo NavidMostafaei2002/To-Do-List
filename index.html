@@ -8,9 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
 
-  <body class="bg-[var(--bg-primary)] flex">
+  <body class="bg-[var(--bg-primary)] flex dark">
     <!-- sidebar -->
-    <asidea
+    <aside
       class="sticky top-1 w-72 h-screen px-4 py-5 bg-[var(--card)] bg-blue-4000 flex-col overflow-auto shadow-lg md:shadow-xl md:rounded-2xl md:m-4 md:h-[calc(100vh-2rem)] hidden md:flex">
       <!-- profile/mobile menu -->
       <div
@@ -177,9 +177,9 @@
       <div class="mt-auto">
         <!-- darkmode-btn -->
         <div
-          class="flex w-full max-w-[232px] p-2 bg-[var(--btn-bg-diabled)] rounded-xl gap-2 mx-auto">
+          class="flex w-full max-w-[232px] p-1  bg-[var(--btn-bg-diabled)] rounded-xl gap-2 mx-auto">
           <button
-            class="flex flex-1 items-center justify-center gap-2 px-4 py-1 bg-[var(--bg-primary)] text-[var(--color-primary)] font-bold rounded-md shadow-sm cursor-pointer">
+            class="flex h-10 flex-1 items-center justify-center gap-2 bg-[var(--bg-primary)] text-[var(--color-primary)] font-bold rounded-md shadow-sm cursor-pointer">
             <span><svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -197,7 +197,7 @@
           </button>
 
           <button
-            class="flex flex-1 items-center justify-center gap-2 px-4 py-1 text-[var(--color-primary-muted)] font-bold rounded-md transition cursor-pointer">
+            class="flex h-10 flex-1 items-center justify-center gap-2 text-[var(--color-primary-muted)] font-bold rounded-md transition cursor-pointer">
             <span><svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -234,12 +234,12 @@
           <span>خروج</span>
         </div>
       </div>
-    </asidea>
+    </aside>
     <!-- main -->
     <main class="min-w-0 flex-1 pb-10 md:px-10 md:pt-16">
       <!-- mobile header -->
       <header
-        class="sticky top-0 z-20 m-3 flex items-center rounded-xl bg-[var(--card)] dark:bg-[var(--card-dark)] px-4 py-3 shadow-sm md:hidden">
+        class="sticky top-0 z-20 m-3 flex items-center rounded-xl bg-[var(--card)] text-[var(--color-primary)] px-4 py-3 shadow-sm md:hidden">
         <button
           aria-label="منو"
           class="text-xl text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">
@@ -255,7 +255,7 @@
       <div class="mx-auto max-w-3xl px-4 md:px-0">
         <!-- mobile profile img and date -->
         <div
-          class="flex items-center border-b border-[var(--btn-bg-muted)] py-5 md:hidden">
+          class="flex items-center border-b border-[var(--btn-bg-muted)] py-5 md:hidden text-[var(--color-primary)]">
           <img
             class="w-14 h-14 rounded-full object-cover"
             src="./assets/images/user-avatar.png"
@@ -290,7 +290,7 @@
         <section>
           <div
             id="add-form"
-            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] dark:bg-[var(--card-dark)] mt-3 shadow-sm">
+            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] mt-3 shadow-sm">
             <div class="space-y-2 p-4">
               <input
                 value
@@ -300,13 +300,13 @@
                 value
                 placeholder="توضیحات"
                 class="w-full bg-transparent text-xs text-[var(--color-primary-muted)] outline-none" />
-              <div class="flex flex-wrap items-center gap-2 pt-2">
+              <div class="flex flex-col flex-wrap items-start px-4 gap-2 pt-2">
                 <button
                   class="rounded-md border border-[var(--btn-bg-muted)] px-2 py-1 text-xs text-[var(--color-primary-muted)]">
                   تگ‌ها
                 </button>
                 <div
-                  class="gap-2 rounded-lg border border-[var(--btn-bg-muted)] p-1.5">
+                  class="flex gap-2 rounded-lg border border-[var(--btn-bg-muted)] px-2 py-4">
                   <button
                     class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]">
                     بالا</button><button
@@ -325,9 +325,15 @@
                 اضافه کردن تسک
               </button>
               <button
-                class="grid size-8 place-items-center rounded-lg bg-[var(--btn-bg-muted)] dark:bg-[var(--btn-bg-muted-dark)] text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]"
+                class="grid size-8 place-items-center rounded-lg bg-[var(--btn-bg-muted)] text-[var(--color-primary)]"
                 aria-label="لغو">
-                ×
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                  class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M6 18 18 6M6 6l12 12" />
+                </svg>
+
               </button>
             </div>
           </div>
@@ -335,7 +341,7 @@
 
         <!-- uncomplete todos container -->
 
-        <section class="mt-3 flex flex-col gap-3">
+        <section class="mt-3 flex flex-col gap-3 text-[var(--color-primary)]">
           <div
             class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] relative p-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-red)]">
             <div class="flex justify-center items-center gap-3">
@@ -358,7 +364,7 @@
             </p>
           </div>
           <div
-            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)]] relative p-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-yellow)]">
+            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] relative p-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-yellow)]">
             <div class="flex items-center gap-3">
               <input
                 type="checkbox"
@@ -379,7 +385,7 @@
             </p>
           </div>
           <div
-            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] relative p-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-green)]">
+            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] relative p-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-green)] cursor-default">
             <div class="flex items-center gap-3">
               <input
                 type="checkbox"
@@ -399,16 +405,28 @@
               باید در مورد کارهای باقیمانده از پروژه قبلی صحبت کنیم.
             </p>
             <div
-              class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] absolute end-2 top-10 z-10 hidden gap-1 p-1 shadow-md">
+              class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] absolute end-8 top-6 z-10 gap-1 p-1 shadow-md">
               <button
-                class="rounded p-1.5 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]"
+                class="rounded p-1.5 text-[var(--color-primary)] cursor-pointer"
                 aria-label="ویرایش">
-                ✎
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                  class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                </svg>
+
               </button>
               <button
-                class="rounded p-1.5 text-[var(--error)]"
+                class="rounded p-1.5 text-[var(--error)] cursor-pointer"
                 aria-label="حذف">
-                🗑
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                  class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m6 4.125 2.25 2.25m0 0 2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                </svg>
+
               </button>
             </div>
           </div>
@@ -456,6 +474,15 @@
           </div>
 
           <!-- empty state -->
+          <div class="flex flex-col justify-center items-center gap-2 my-5">
+            <img class="w-2/6" src="assets/images/empty_task.png"
+              alt="empty_task">
+            <p class="text-sm text-[var(--color-primary)] font-semibold">چه
+              کارهایی امروز برای انجام داری؟</p>
+            <p class="text-xs text-[var(--color-primary-muted)]">میتونی الان تسک
+              هاتو اینجا بنویسی و برنامه ریزی رو شروع کنی!</p>
+
+          </div>
         </section>
 
         <!-- complete todos container -->
@@ -474,7 +501,7 @@
               class="relative flex flex-row justify-between items-center border-1 border-[var(--btn-bg-muted)] rounded-xl py-5 px-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-yellow)] mt-3 bg-[var(--card)]">
               <div class="flex flex-row justify-center items-center gap-5">
                 <input
-                  class="w-4 h-4 rounded border border-gray-300"
+                  class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]"
                   type="checkbox"
                   id="task1"
                   checked />
@@ -504,7 +531,7 @@
               class="relative flex flex-row justify-between items-center border-1 border-[var(--btn-bg-muted)] rounded-xl py-4 px-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-red)] mt-3 bg-[var(--card)]">
               <div class="flex flex-row justify-center items-center gap-5">
                 <input
-                  class="w-4 h-4 rounded border border-gray-300"
+                  class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]"
                   type="checkbox"
                   id="task2"
                   checked />
@@ -533,7 +560,7 @@
               class="relative flex flex-row justify-between items-center border-1 border-[var(--btn-bg-muted)] rounded-xl py-5 px-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-green)] mt-3 bg-[var(--card)]">
               <div class="flex flex-row justify-center items-center gap-5">
                 <input
-                  class="w-4 h-4 rounded border border-gray-300"
+                  class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]"
                   type="checkbox"
                   id="task3"
                   checked />
