@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
 
-  <body class="bg-[var(--bg-primary)] flex dark">
+  <body class="bg-[var(--bg-primary)] flex">
     <!-- sidebar -->
     <aside
       class="sticky top-1 w-72 h-screen px-4 py-5 bg-[var(--card)] bg-blue-4000 flex-col overflow-auto shadow-lg md:shadow-xl md:rounded-2xl md:m-4 md:h-[calc(100vh-2rem)] hidden md:flex">
@@ -41,6 +41,7 @@
             class="font-extrabold text-base text-[var(--color-primary)]">سلام،
             رویا</span>
           <span
+           id="sidebar-date"
             class="font-semibold text-xs text-[var(--color-primary-muted)]">سه
             شنبه، ۵ بهمن۱۴۰۲</span>
         </div>
@@ -179,6 +180,7 @@
         <div
           class="flex w-full max-w-[232px] p-1  bg-[var(--btn-bg-diabled)] rounded-xl gap-2 mx-auto">
           <button
+           id="light-btn"
             class="flex h-10 flex-1 items-center justify-center gap-2 bg-[var(--bg-primary)] text-[var(--color-primary)] font-bold rounded-md shadow-sm cursor-pointer">
             <span><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -197,6 +199,7 @@
           </button>
 
           <button
+           id="dark-btn"
             class="flex h-10 flex-1 items-center justify-center gap-2 text-[var(--color-primary-muted)] font-bold rounded-md transition cursor-pointer">
             <span><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -265,6 +268,7 @@
               class="font-extrabold text-base text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]">سلام،
               رویا</span>
             <span
+              id="mobile-date"
               class="font-semibold text-xs text-[var(--color-primary-muted)]">امروز،
               سه‌شنبه، ۵ بهمن ۱۴۰۲</span>
           </div>
@@ -589,6 +593,10 @@
         </section>
       </div>
     </main>
+    <script src="./utils/priority.js"></script>
+    <script src="./js/darkmode.js"></script>
+    <script src="./js/date.js"></script>
+    <script src="./js/sidebar.js"></script>
     <script src="./js/main.js"></script>
   </body>
 
