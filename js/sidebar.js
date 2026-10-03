@@ -39,3 +39,11 @@ document.addEventListener("keydown", (e) => {
 window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
   if (e.matches) closeSidebar()
 })
+
+const logoutBtn = document.querySelector(".sidebar-bottom")
+
+logoutBtn.addEventListener("click", () => {
+  if (!confirm("می‌خواهید از حساب خود خارج شوید؟")) return
+
+  window.location.href = "./login.html"
+})
