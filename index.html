@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
 
-  <body class="bg-[var(--bg-primary)] flex dark">
+  <body class="bg-[var(--bg-primary)] flex">
     <!-- sidebar -->
     <aside
       class="sticky top-1 w-72 h-screen px-4 py-5 bg-[var(--card)] bg-blue-4000 flex-col overflow-auto shadow-lg md:shadow-xl md:rounded-2xl md:m-4 md:h-[calc(100vh-2rem)] hidden md:flex">
@@ -295,11 +295,11 @@
               <input
                 value
                 placeholder="نام تسک"
-                class="w-full bg-transparent text-sm font-bold text-[var(--color-primary)] outline-none" />
+                class="title-input w-full bg-transparent text-sm font-bold text-[var(--color-primary)] outline-none" />
               <input
                 value
                 placeholder="توضیحات"
-                class="w-full bg-transparent text-xs text-[var(--color-primary-muted)] outline-none" />
+                class="desc-input w-full bg-transparent text-xs text-[var(--color-primary-muted)] outline-none" />
               <div class="flex flex-col flex-wrap items-start px-4 gap-2 pt-2">
                 <button
                   class="rounded-md border border-[var(--btn-bg-muted)] px-2 py-1 text-xs text-[var(--color-primary-muted)]">
@@ -308,11 +308,11 @@
                 <div
                   class="flex gap-2 rounded-lg border border-[var(--btn-bg-muted)] px-2 py-4">
                   <button
-                    class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]">
+                    class="priority-input inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]">
                     بالا</button><button
-                    class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-yellow)] text-[var(--color-primary-yellow)]">
+                    class="priority-input inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-[11px] bg-[var(--color-secondary-yellow)] text-[var(--color-primary-yellow)]">
                     متوسط</button><button
-                    class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]">
+                    class="priority-input inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]">
                     پایین
                   </button>
                 </div>
