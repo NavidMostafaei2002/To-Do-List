@@ -302,26 +302,44 @@
                 value
                 placeholder="توضیحات"
                 class="desc-input w-full bg-transparent text-xs text-[var(--color-primary-muted)] outline-none" />
-              <div class="flex flex-col flex-wrap items-start px-4 gap-2 pt-2">
+              <div class="flex flex-col flex-wrap items-start gap-2 px-4 pt-2">
+
+                <!-- دکمه تگ‌ها -->
                 <button
+                  id="priorityToggle"
+                  type="button"
                   class="rounded-md border border-[var(--btn-bg-muted)] px-2 py-1 text-xs text-[var(--color-primary-muted)]">
                   تگ‌ها
                 </button>
+
+                <!-- انتخاب اولویت -->
                 <div
-                  class="flex gap-2 rounded-lg border border-[var(--btn-bg-muted)] px-2 py-4">
-                  <button data-priority="high"
-                    class="priority-input inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]">
+                  id="priorityOptions"
+                  class="hidden gap-2 rounded-lg border border-[var(--btn-bg-muted)] px-2 py-4">
+
+                  <button
+                    type="button"
+                    data-priority="high"
+                    class="priority-input rounded-md bg-[var(--color-secondary-red)] px-3 py-1.5 text-[11px] text-[var(--color-primary-red)] transition-all duration-200">
                     بالا
                   </button>
-                  <button data-priority="normal"
-                    class="priority-input inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-[11px] bg-[var(--color-secondary-yellow)] text-[var(--color-primary-yellow)]">
+
+                  <button
+                    type="button"
+                    data-priority="normal"
+                    class="priority-input rounded-md bg-[var(--color-secondary-yellow)] px-3 py-1.5 text-[11px] text-[var(--color-primary-yellow)] transition-all duration-200">
                     متوسط
                   </button>
-                  <button data-priority="low"
-                    class="priority-input inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]">
+
+                  <button
+                    type="button"
+                    data-priority="low"
+                    class="priority-input rounded-md bg-[var(--color-secondary-green)] px-3 py-1.5 text-[11px] text-[var(--color-primary-green)] transition-all duration-200">
                     پایین
                   </button>
+
                 </div>
+
               </div>
             </div>
             <div
@@ -349,7 +367,6 @@
 
         <section id="uncompleteTodosContainer"
           class="mt-3 flex flex-col gap-3 text-[var(--color-primary)]">
-          
           <!-- <div
             class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] relative p-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-red)]">
             <div class="flex justify-center items-center gap-3">
@@ -597,7 +614,7 @@
             </div>
           </div> -->
           </section>
-        </div>
+        </div> 
       </main>
       <script type="module" src="./js/main.js"></script>
     </body>
