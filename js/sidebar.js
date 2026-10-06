@@ -8,19 +8,18 @@ overlay.className = "fixed inset-0 z-40 bg-black/50 opacity-0 pointer-events-non
 document.body.append(overlay)
 
 const openSidebar = () => {
-  sidebar.classList.remove("translate-x-full")
-  
-  overlay.classList.remove("opacity-0", "pointer-events-none")
+  sidebar.classList.remove("hidden")
+  sidebar.classList.remove("max-md:translate-x-full")
+
   overlay.classList.add("opacity-100", "pointer-events-auto")
   
   document.body.classList.add("overflow-hidden")
 }
 
 const closeSidebar = () => {
-  sidebar.classList.add("translate-x-full")
+ sidebar.classList.add("max-md:translate-x-full")
   
   overlay.classList.remove("opacity-100", "pointer-events-auto")
-  overlay.classList.add("opacity-0", "pointer-events-none")
   
   document.body.classList.remove("overflow-hidden")
 }

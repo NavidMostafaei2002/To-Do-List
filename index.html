@@ -11,8 +11,7 @@
   <body class="bg-[var(--bg-primary)] flex">
     <!-- sidebar -->
     <aside
-      class="fixed inset-y-0 right-0 z-50 w-72 h-screen px-4 py-5 bg-[var(--card)] flex flex-col overflow-auto shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out md:sticky md:top-1 md:translate-x-0 md:shadow-xl md:rounded-2xl md:m-4 md:h-[calc(100vh-2rem)]"
-    >
+     class="sticky top-1 w-72 h-screen px-4 py-5 bg-[var(--card)] bg-blue-4000 flex-col overflow-auto shadow-lg md:shadow-xl md:rounded-2xl md:m-4 md:h-[calc(100vh-2rem)] hidden md:flex  max-md:fixed max-md:inset-y-0 max-md:right-0 max-md:z-50 max-md:transition-transform max-md:duration-300">
       <!-- profile/mobile menu -->
       <div
         class="sidebar-header flex justify-between md:hidden text-[var(--color-primary)]"
@@ -332,7 +331,7 @@
         <!-- today tasks text -->
         <div class="mt-5 md:mt-0">
           <h2 class="font-bold text-[var(--color-primary)]">تسک های امروز</h2>
-          <p class="text-[var(--color-primary-muted)] text-xs my-1">
+          <p id="todo-count-text" class="text-[var(--color-primary-muted)] text-xs my-1">
             <span class="font-bold">۳</span> تسک را باید انجام دهید.
           </p>
         </div>
@@ -340,6 +339,7 @@
         <!-- add todo button -->
 
         <button
+         id="open-add-form"
           class="mt-4 flex w-full items-center justify-center gap-1 rounded-xl border-2 border-dashed border-[var(--btn-bg-muted)] bg-[var(--card)] py-3 text-sm font-bold text-[var(--color-primary-blue)] cursor-pointer"
         >
           <span class="text-lg leading-none">+</span> افزودن وظیفه جدید
@@ -350,37 +350,48 @@
         <section>
           <div
             id="add-form"
-            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] mt-3 shadow-sm"
+            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] mt-3 shadow-sm hidden"
           >
             <div class="space-y-2 p-4">
               <input
+                id="todo-title"
                 value
                 placeholder="نام تسک"
                 class="w-full bg-transparent text-sm font-bold text-[var(--color-primary)] outline-none"
               />
               <input
+               id="todo-desc"
                 value
                 placeholder="توضیحات"
                 class="w-full bg-transparent text-xs text-[var(--color-primary-muted)] outline-none"
               />
               <div class="flex flex-col flex-wrap items-start px-4 gap-2 pt-2">
+                <div id="selected-priority" class="hidden"></div>
                 <button
+                 id="tags-btn" type="button"
                   class="rounded-md border border-[var(--btn-bg-muted)] px-2 py-1 text-xs text-[var(--color-primary-muted)]"
                 >
                   تگ‌ها
                 </button>
                 <div
-                  class="flex gap-2 rounded-lg border border-[var(--btn-bg-muted)] px-2 py-4"
+                  id="priority-picker"
+                  class="flex gap-2 rounded-lg border border-[var(--btn-bg-muted)] px-2 py-4 hidden"
                 >
                   <button
+                    type="button"
+                    data-priority="high"
                     class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]"
                   >
                     بالا</button
                   ><button
+                   type="button"
+                   data-priority="medium"
                     class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-yellow)] text-[var(--color-primary-yellow)]"
                   >
                     متوسط</button
                   ><button
+                     type="button"
+                     data-priority="low"
                     class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]"
                   >
                     پایین
@@ -392,11 +403,16 @@
               class="flex items-center gap-2 border-t border-[var(--btn-bg-muted)] p-3"
             >
               <button
+                id="submit-todo"
+                type="button"
+                disabled
                 class="rounded-lg bg-[var(--color-primary-blue)] px-4 py-1.5 text-[13px] text-white"
               >
                 اضافه کردن تسک
               </button>
               <button
+                id="cancel-todo"
+                type="button"
                 class="grid size-8 place-items-center rounded-lg bg-[var(--btn-bg-muted)] text-[var(--color-primary)]"
                 aria-label="لغو"
               >
@@ -420,189 +436,12 @@
         </section>
 
         <!-- uncomplete todos container -->
-
+         
         <section class="mt-3 flex flex-col gap-3 text-[var(--color-primary)]">
-          <div
-            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] relative p-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-red)]"
-          >
-            <div class="flex justify-center items-center gap-3">
-              <input
-                type="checkbox"
-                class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]"
-              />
-              <span
-                class="text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]"
-                >جلسه با مدیران پروژه</span
-              >
-              <span
-                class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]"
-                >بالا</span
-              >
-              <button
-                class="ms-auto px-1 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]"
-                aria-label="گزینه‌ها"
-              >
-                ⋮
-              </button>
-            </div>
-            <p class="mt-2 ps-8 text-xs text-[var(--color-primary-muted)]">
-              جلسه با محسن یگانه و مریم جلالی
-            </p>
-          </div>
-          <div
-            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] relative p-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-yellow)]"
-          >
-            <div class="flex items-center gap-3">
-              <input
-                type="checkbox"
-                class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]"
-              />
-              <span
-                class="text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]"
-                >خرید میوه و سبزیجات و لبنیات برای خانه</span
-              >
-              <span
-                class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-yellow)] text-[var(--color-primary-yellow)]"
-                >متوسط</span
-              >
-              <button
-                class="ms-auto px-1 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]"
-                aria-label="گزینه‌ها"
-              >
-                ⋮
-              </button>
-            </div>
-            <p class="mt-2 ps-8 text-xs text-[var(--color-primary-muted)]">
-              سوپرمارکت یاران دریایی
-            </p>
-          </div>
-          <div
-            class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] relative p-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-green)] cursor-default"
-          >
-            <div class="flex items-center gap-3">
-              <input
-                type="checkbox"
-                class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]"
-              />
-              <span
-                class="text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]"
-                >تماس با جمشید</span
-              >
-              <span
-                class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]"
-                >پایین</span
-              >
-              <button
-                class="ms-auto px-1 text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]"
-                aria-label="گزینه‌ها"
-              >
-                ⋮
-              </button>
-            </div>
-            <p class="mt-2 ps-8 text-xs text-[var(--color-primary-muted)]">
-              باید در مورد کارهای باقیمانده از پروژه قبلی صحبت کنیم.
-            </p>
-            <div
-              class="rounded-xl border border-[var(--btn-bg-muted)] bg-[var(--card)] absolute end-8 top-6 z-10 gap-1 p-1 shadow-md"
-            >
-              <button
-                class="rounded p-1.5 text-[var(--color-primary)] cursor-pointer"
-                aria-label="ویرایش"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
-                  />
-                </svg>
-              </button>
-              <button
-                class="rounded p-1.5 text-[var(--error)] cursor-pointer"
-                aria-label="حذف"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m6 4.125 2.25 2.25m0 0 2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div
-            id="edit-form"
-            class="rounded-xl border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] bg-[var(--card)] dark:bg-[var(--card-dark)] hidden mt-3 shadow-sm"
-          >
-            <div class="space-y-2 p-4">
-              <input
-                value="تماس با جمشید"
-                placeholder="نام تسک"
-                class="w-full bg-transparent text-sm font-bold text-[var(--color-primary)] dark:text-[var(--color-primary-dark)] outline-none"
-              />
-              <input
-                value="باید در مورد کارهای باقیمانده از پروژه قبلی صحبت کنیم."
-                placeholder="توضیحات"
-                class="w-full bg-transparent text-xs text-[var(--color-primary-muted)] outline-none"
-              />
-              <div class="flex flex-wrap items-center gap-2 pt-2">
-                <span
-                  class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]"
-                  >× پایین</span
-                >
-                <div
-                  class="hidden gap-2 rounded-lg border border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] p-1.5"
-                >
-                  <button
-                    class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-red)] text-[var(--color-primary-red)]"
-                  >
-                    بالا</button
-                  ><button
-                    class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-yellow)] text-[var(--color-primary-yellow)]"
-                  >
-                    متوسط</button
-                  ><button
-                    class="inline-flex items-center gap-1 rounded-md px-2 py-px text-[11px] bg-[var(--color-secondary-green)] text-[var(--color-primary-green)]"
-                  >
-                    پایین
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="flex items-center gap-2 border-t border-[var(--btn-bg-muted)] dark:border-[var(--btn-bg-muted-dark)] p-3"
-            >
-              <button
-                class="rounded-lg bg-[var(--color-primary-blue)] px-4 py-1.5 text-[13px] text-white"
-              >
-                ویرایش تسک
-              </button>
-              <button
-                class="grid size-8 place-items-center rounded-lg bg-[var(--btn-bg-muted)] dark:bg-[var(--btn-bg-muted-dark)] text-[var(--color-primary)] dark:text-[var(--color-primary-dark)]"
-                aria-label="لغو"
-              >
-                ×
-              </button>
-            </div>
-          </div>
+          <div id="todos-list" class="flex flex-col gap-3"></div>
 
           <!-- empty state -->
-          <div class="flex flex-col justify-center items-center gap-2 my-5">
+          <div id="empty-state" class="flex flex-col justify-center items-center gap-2 my-5">
             <img
               class="w-2/6"
               src="assets/images/empty_task.png"
@@ -623,113 +462,11 @@
           <h2 class="font-bold text-[var(--color-primary)]">
             تسک های انجام شده
           </h2>
-          <p class="text-[var(--color-primary-muted)] text-xs my-1">
+          <p id="done-count-text" class="text-[var(--color-primary-muted)] text-xs my-1">
             <span class="font-bold">۳</span> تسک انجام شده است.
           </p>
           <!-- tasks -->
-          <div class="text-[var(--color-primary)]">
-            <!-- task -->
-            <div
-              class="relative flex flex-row justify-between items-center border-1 border-[var(--btn-bg-muted)] rounded-xl py-5 px-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-yellow)] mt-3 bg-[var(--card)]"
-            >
-              <div class="flex flex-row justify-center items-center gap-5">
-                <input
-                  class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]"
-                  type="checkbox"
-                  id="task1"
-                  checked
-                />
-                <label for="task1">
-                  <p class="line-through decoration-1">
-                    خرید میوه و سبزیجات و لبنیات برای خانه
-                  </p>
-                </label>
-              </div>
-
-              <button class="mr-0 cursor-pointer" type="button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div
-              class="relative flex flex-row justify-between items-center border-1 border-[var(--btn-bg-muted)] rounded-xl py-4 px-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-red)] mt-3 bg-[var(--card)]"
-            >
-              <div class="flex flex-row justify-center items-center gap-5">
-                <input
-                  class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]"
-                  type="checkbox"
-                  id="task2"
-                  checked
-                />
-                <label for="task2">
-                  <p class="line-through decoration-1">
-                    تماس با مبل فروشی در مورد تاخیر در ارسال
-                  </p>
-                </label>
-              </div>
-              <button class="mr-0 cursor-pointer" type="button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div
-              class="relative flex flex-row justify-between items-center border-1 border-[var(--btn-bg-muted)] rounded-xl py-5 px-4 after:absolute after:right-0 after:top-2 after:h-3/4 after:w-1 after:rounded-l-full after:bg-[var(--color-primary-green)] mt-3 bg-[var(--card)]"
-            >
-              <div class="flex flex-row justify-center items-center gap-5">
-                <input
-                  class="size-[18px] shrink-0 accent-[var(--color-primary-blue)]"
-                  type="checkbox"
-                  id="task3"
-                  checked
-                />
-                <label for="task3">
-                  <p class="line-through decoration-1">
-                    جلسه با مرتضی در مورد مصاحبه با کارآموز ادمین پنل
-                  </p>
-                </label>
-              </div>
-              <button class="mr-0 cursor-pointer" type="button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
+          <div id="done-list" class="text-[var(--color-primary)]"></div>
         </section>
       </div>
     </main>
